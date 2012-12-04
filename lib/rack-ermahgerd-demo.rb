@@ -1,0 +1,5 @@
+require 'rack'
+require 'erb'
+require 'rack-ermahgerd'
+require 'rack-ermahgerd-demo/server'
+require 'rack-ermahgerd-demo/root'
