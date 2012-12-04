@@ -9,7 +9,6 @@ module RackErmahgerdDemo
     def self.post(env)
       input = env['rack.input'].read
       text = Rack::Utils.unescape(input).split('=')[-1]
-      
       body = TMPL.result(binding)
       [200, {'Content-Type' => 'text/html'}, [body]]
     end

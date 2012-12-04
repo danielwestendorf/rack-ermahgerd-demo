@@ -1,8 +1,10 @@
 require 'spec_helper'
 
+SERVER = Rack::Builder.parse_file('config.ru').first
+
 describe RackErmahgerdDemo::Server do
 
-  let(:server) {Rack::MockRequest.new(RackErmahgerdDemo::Server.new)}
+  let(:server) {Rack::MockRequest.new(SERVER)}
 
   describe "App methods" do
 
@@ -37,9 +39,8 @@ describe RackErmahgerdDemo::Server do
     end
 
     it "should return translated body when a post is sent" do
-      response = server.post('/', {text: 'Goosebumps!'})
-      p response
-      # response.body.should == 'test'
+      response = server.post('/', input: 'text=test option')
+      response.body.should match 'TERST ERPTERN'
     end
 
   end
