@@ -1,3 +1,4 @@
+require 'newrelic_rpm'
 # If you have a very small app you may be able to
 # increase this, but in general 3 workers seems to
 # work best
