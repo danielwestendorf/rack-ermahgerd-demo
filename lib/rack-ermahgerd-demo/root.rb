@@ -46,12 +46,17 @@ TMPL = ERB.new <<-EOF
       </div>
       <div id="content" class="container">
         <div class="row-fluid">
-          <div class="span6 offset3">
+          <div class="span4 offset4">
             <p>This is a simple Rack app that uses the rack-ermahgerd middleware to translate the text.</p>
+            <p id="img">
+              <img src="/img/ERMAHGERD.jpg"/>
+            </p>
           </div>
-          <div class="span6 offset3">
+        </div>
+        <div class="row-fluid">
+          <div class="span4 offset4">
             <form action="/" method="POST">
-              <textarea name="text"><%= text %></textarea><br>
+              <textarea name="text" rows="6" placeholder="Enter your text here to have it translated..."><%= text %></textarea><br>
               <input type="submit" value="Translate!" class="btn"/>
             </form>
           </div>
@@ -60,6 +65,8 @@ TMPL = ERB.new <<-EOF
     </body>
     <style type="text/css">
       #content {margin-top: 60px;}
+      textarea {width: 100% !important;}
+      #img {text-align: center;}
     </style>
   </html>
 EOF
