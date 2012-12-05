@@ -13,7 +13,7 @@ describe RackErmahgerdDemo::Server do
     context "router method" do
       
       it "should return a valid controller and method" do
-        app.router("GET", "/").should eq("Root")
+        app.router("GET", "/")[:object].should eq("Root")
       end
 
       it "should return nil when passed an invalid path" do
@@ -22,6 +22,10 @@ describe RackErmahgerdDemo::Server do
 
       it "should return nil when passed an invalid method" do
         app.router("SHART", "/").should be_nil
+      end
+
+      it "return a hash" do
+        app.router("GET", "/").class.should eq Hash
       end
 
     end
